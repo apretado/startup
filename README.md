@@ -1,2 +1,2 @@
 # startup
-[Notes](https://github.com/apretado/startup/notes.md)
+[Notes](https://github.com/apretado/startup/blob/main/notes.md)
