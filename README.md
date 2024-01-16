@@ -17,6 +17,6 @@ In this game, everyone is given the same prompt that they must answer honestly. 
 - Score calculated automatially and shown on the leaderboard
 
 ## Technologies
-- **Authentication**:
-- **Database data**:
-- **WebSocket data**:
+- **Authentication**: Users register by choosing a username and password. Authentication is preformed server side. Passwords are never stored in plain text.
+- **Database data**: Stores the list of users and their credentials, as well as a list of prompts.
+- **WebSocket data**: Each user's responses and scores are broadcast to every other user.
