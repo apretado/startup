@@ -20,3 +20,14 @@ In this game, everyone is given the same prompt that they must answer honestly. 
 - **Authentication**: Users register by choosing a username and password. Authentication is preformed server side. Passwords are never stored in plain text.
 - **Database data**: Stores the list of users and their credentials, as well as a list of prompts.
 - **WebSocket data**: Each user's responses and scores are broadcast to every other user.
+
+# Startup HTML deliverable
+What I modified and added with this deliverable:
+(Pure HTML pages with limited functionality)
+- Home page
+  - Form to join a game
+  - Link to my github in the footer
+- Lobby page which displays the names of the players who have joined
+- Form to prompt the player to respond
+- Drop-down menu to guess who said what
+- Leaderboard
