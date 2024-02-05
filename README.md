@@ -31,3 +31,9 @@ What I modified and added with this deliverable:
 - Form to prompt the player to respond
 - Drop-down menu to guess who said what
 - Leaderboard
+
+Placeholders for technologies that will be added later:
+- *Application data*: The random prompt question, the user name, and the score
+- *Authentication*: A login form using the join code
+- *Database data*: The leaderboard
+- *Websocket data*: The lobby which shows live the names of the players who have joined
