@@ -10,14 +10,21 @@ menu {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 1em;
+}
+
+menu h1, menu li {
+    margin: 0;
+    padding-left: 2em;
+}
+
+menu li a {
+    color: white;
+    text-decoration-line: none;
 }
 
 header {
     background: darkslategray;
     color: white;
-
-    
 }
 
 menu {
