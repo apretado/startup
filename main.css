@@ -10,6 +10,8 @@ body, menu{
 body {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+
     margin: 0;
 }
 
@@ -21,6 +23,11 @@ header {
 
 main {
     flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }
 
 body {
@@ -29,6 +36,16 @@ body {
 
 footer {
     flex: 0 30px;
+
+    background: slategray;
+    color: lightgray;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0em 1em;
 }
 
 menu {
@@ -47,7 +64,6 @@ menu li a {
     color: white;
     text-decoration-line: none;
 }
-
 
 form input {
     margin-bottom: 1em;
