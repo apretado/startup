@@ -1,15 +1,41 @@
 html {
     font-family: sans-serif;
+    height: 100%;
 }
 
 body, menu{
     margin: 0;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+header {
+    flex: 0 30px;
+    background: darkslategray;
+    color: white;
+}
+
+main {
+    flex: 1;
+}
+
+body {
+    height: 100%;
+}
+
+footer {
+    flex: 0 30px;
+}
+
 menu {
     display: flex;
     flex-direction: row;
     align-items: center;
+    list-style-type: none;
 }
 
 menu h1, menu li {
@@ -22,27 +48,6 @@ menu li a {
     text-decoration-line: none;
 }
 
-header {
-    background: darkslategray;
-    color: white;
-}
-
-menu {
-    list-style-type: none;
-}
-
-main {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-main form {
-    margin-left: 2em;
-    margin-right: 2em;
-    display: flex;
-    flex-direction: column;
-}
 
 form input {
     margin-bottom: 1em;
