@@ -1,16 +1,31 @@
-body, h1{
+html {
+    font-family: sans-serif;
+}
+
+body, menu{
     margin: 0;
+}
+
+menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 1em;
 }
 
 header {
     background: darkslategray;
     color: white;
-    font-family: sans-serif;
+
+    
+}
+
+menu {
+    list-style-type: none;
 }
 
 main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
 }
