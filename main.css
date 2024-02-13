@@ -69,10 +69,24 @@ footer a {
     color: white;
 }
 
-form input {
-    margin-bottom: 1em;
-}
-
 img {
     margin: 1em;
+}
+
+input, button, select {
+    background: gainsboro;
+    border: none;
+    padding: 0.75em 0.75em;
+    border-radius: 8px;
+    margin-bottom: 1em;
+    width: 100%;
+}
+
+
+button, input[type=submit] {
+    cursor: pointer;
+}
+
+select {
+    width: 100%;
 }
