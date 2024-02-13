@@ -27,7 +27,6 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
 }
 
 body {
@@ -58,6 +57,7 @@ menu {
 menu h1, menu li {
     margin: 0;
     padding-left: 2em;
+    white-space: nowrap;
 }
 
 menu li a {
@@ -65,6 +65,14 @@ menu li a {
     text-decoration-line: none;
 }
 
+footer a {
+    color: white;
+}
+
 form input {
     margin-bottom: 1em;
+}
+
+img {
+    margin: 1em;
 }
