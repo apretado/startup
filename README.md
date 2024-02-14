@@ -37,3 +37,9 @@ Placeholders for technologies that will be added later:
 - *Authentication*: A login form using the join code
 - *Database data*: The leaderboard
 - *Websocket data*: The lobby which shows live the names of the players who have joined
+
+# CSS deliverable
+- Header and footer that are responsive to window resizing
+- Styled navigation elements, buttons and input fields
+- Styled image, text and application elements
+I also learned more about how to use flexbox through trial and error.
