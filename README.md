@@ -43,3 +43,20 @@ Placeholders for technologies that will be added later:
 - Styled navigation elements, buttons and input fields
 - Styled image, text and application elements
 I also learned more about how to use flexbox through trial and error.
+
+## Some things I've learned
+CSS combinators:
+- ```body section```: 	Any section that is a descendant of a body
+- ```section > p```: 	Any p that is a direct child of a section
+- ```div ~ p```: 	Any p that has a div sibling
+- ```div + p```: 	Any p that has an adjacent div sibling
+CSS selectors:
+- ```.summary```: Anything with ```class="summary"```
+- ```p.summary```: Any p with ```class="summary"```
+- ```#physics``` Specific element with ```id="physics"```
+- ```a[href]```: ```a``` element with attribute ```href```
+- ```a[href="./fish.png"]```: required value
+- ```p[href*="https://"]```: value contains text
+- ```section: hover```: pseudo selector
+
+
