@@ -59,4 +59,72 @@ CSS selectors:
 - ```p[href*="https://"]```: value contains text
 - ```section: hover```: pseudo selector
 
+# JavaScript
+
+## Arrays
+
+| Function | Meaning                                                   | Example                       |
+| -------- | --------------------------------------------------------- | ----------------------------- |
+| push     | Add an item to the end of the array                       | `a.push(4)`                   |
+| pop      | Remove an item from the end of the array                  | `x = a.pop()`                 |
+| slice    | Return a sub-array                                        | `a.slice(1,-1)`               |
+| sort     | Run a function to sort an array in place                  | `a.sort((a,b) => b-a)`        |
+| values   | Creates an iterator for use with a `for of` loop          | `for (i of a.values()) {...}` |
+| find     | Find the first item satisfied by a test function          | `a.find(i => i < 2)`          |
+| forEach  | Run a function on each array item                         | `a.forEach(console.log)`      |
+| reduce   | Run a function to reduce each array item to a single item | `a.reduce((a, c) => a + c)`   |
+| map      | Run a function to map an array to a new array             | `a.map(i => i+i)`             |
+| filter   | Run a function to remove items                            | `a.filter(i => i%2)`          |
+| every    | Run a function to test if all items match                 | `a.every(i => i < 3)`         |
+| some     | Run a function to test if any items match                 | `a.some(i => 1 < 1)`          |
+
+## JSON
+Data types:
+- string: 	"crockford"
+- number: 	42
+- boolean: 	true
+- array: 	[null,42,"crockford"]
+- object: 	{"a":1,"b":"crockford"}
+- null: 	null
+Example:
+```
+"class": {
+    "title": "web programming",
+    "description": "Amazing"
+  },
+  "enrollment": ["Marco", "Jana", "فَاطِمَة"],
+  "start": "2025-02-01",
+  "end": null
+}
+```
+- ```JSON.stringify(obj)```: Convert object to JSON
+- ```JSON.parse(json)```: Convert JSON to object
+
+## Objects
+Example:
+
+```const obj = {
+  a: 3,
+  b: 'fish',
+};
+```
+
+- ```obj.prop``` or ```obj['prop']```: Access property
+- ```Object.entries(obj)```: Array of key value pairs
+- ```Object.keys(obj)```: Array of keys
+- ```Object.values(obj)```: Array of values
+
+
+## DOM
+- ```document.querySelector('div');```: Select elements with CSS selector
+- ```.textContent```: Text of element (inbetween element tags)
+- ```document.querySelectorAll('p');```: List of all matching elements
+- ```const newChild = document.createElement('div');```: Create new element on the DOM document
+- ```document.querySelector(parentSelector).appendChild(newChild)```: Insert element into DOM tree
+- ```document.querySelector(elementSelector).parentElement.removeChild(document.querySelector(elementSelector));```: Remove element (call ```removeChild``` on parent element)
+- ```document.querySelector('div').innerHTML = '<div>Foo</div>'```: replace (inject) html in first ```div``` element.
+- ```document.querySelector('#submitData').function (event) {console.log(event.type);})```: Event listener
+
+
+
 
