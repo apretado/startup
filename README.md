@@ -38,6 +38,12 @@ Placeholders for technologies that will be added later:
 - *Database data*: The leaderboard
 - *Websocket data*: The lobby which shows live the names of the players who have joined
 
+## Things I've learned about DNS
+Record types:
+```A```: IPV4 adress record
+```NS```: Names of the authoritative Name Servers that authorize you to place DNS records in this DNS server
+```SOA```: (Start Of Authority) provides contact information about the owner of this domain name
+
 # CSS deliverable
 - Header and footer that are responsive to window resizing
 - Styled navigation elements, buttons and input fields
