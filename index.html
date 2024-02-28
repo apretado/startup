@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>I know you</title>
     <link rel="stylesheet" href="main.css" />
+    <script src="login.js"></script>
   </head>
   <body>
     <header>
@@ -20,7 +21,7 @@
       </nav>
     </header>
     <main>
-      <form method="get" action="lobby.html">
+      <!-- <form method="get" action="lobby.html">
         <h2>Join a game</h2>
         <label for="code">Room Code</label>
         <br>
@@ -31,8 +32,8 @@
         <input type="text" id="name" placeholder="Enter your name" />
         <br>
         <button type="submit">Play</button>
-      </form>
-      <form method="get" action="lobby.html">
+      </form> -->
+      <div>
         <h2>Sign in</h2>
         <label for="username">Username</label>
         <br>
@@ -42,8 +43,8 @@
         <br>
         <input type="password" id="password" placeholder="Password" />
         <br>
-        <button type="submit">Login</button>
-      </form>
+        <button onclick="login()">Login</button>
+      </div>
     </main>
     <footer>
         <p>Made by Jonathan Thornton</p>
