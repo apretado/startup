@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>I know you</title>
     <link rel="stylesheet" href="main.css" />
+    <script src="guess.js"></script>
   </head>
   <body>
     <header>
@@ -20,34 +21,13 @@
       </nav>
     </header>
     <main>
-        <h2>Make your guess</h2>
-        <form method="get" action="scores.html">
-            <label>Jack</label>
-            <select>
-                <option value="" disabled selected>Choose...</option>
-                <option>Employee of the month</option>
-                <option>Most creative cake</option>
-                <option>Best hairdo</option>
-            </select>
-            <br>
-            <label>John</label>
-            <select>
-                <option value="" disabled selected>Choose...</option>
-                <option>Employee of the month</option>
-                <option>Most creative cake</option>
-                <option>Best hairdo</option>
-            </select>
-            <br>
-            <label>Jil</label>
-            <select>
-                <option value="" disabled selected>Choose...</option>
-                <option>Employee of the month</option>
-                <option>Most creative cake</option>
-                <option>Best hairdo</option>
-            </select>
-            <br>
-            <button type="submit">Submit</button>
-          </form>
+        <h2>Prompt: An award that you've won</h2>
+        <h2>Guess who said: "Best hairdo"</h2>
+        <div>
+            <button onclick="buttonClick(this)">Jack</button>
+            <button onclick="buttonClick(this)">John</button>
+            <button onclick="buttonClick(this)">Jil</button>
+        </div>
     </main>
     <footer>
         <p>Made by Jonathan Thornton</p>
