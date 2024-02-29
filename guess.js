@@ -11,6 +11,7 @@ function buttonClick(button) {
 
 function guess(button) {
     userGuessedCorrectly = false;
+    let pointsEarned = 100;
 
     // Loop through every button
     buttonList = document.querySelectorAll("button");
@@ -36,8 +37,8 @@ function guess(button) {
 
     // Correct or incorrect
     if (userGuessedCorrectly) {
-        document.getElementById("options").innerHTML += "<p>Correct! +100 points</p>";
-        localStorage.setItem("score", 300);
+        document.getElementById("options").innerHTML += `<p>Correct! +${pointsEarned} points</p>`;
+        localStorage.setItem("score", pointsEarned);
     } else {
         document.getElementById("options").innerHTML += "<p>Incorrect!</p>";
         localStorage.setItem("score", 0);
