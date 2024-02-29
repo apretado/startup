@@ -34,10 +34,14 @@ function guess(button) {
         }
     }
 
+    // Correct or incorrect
     if (userGuessedCorrectly) {
         document.getElementById("options").innerHTML += "<p>Correct! +100 points</p>";
     } else {
         document.getElementById("options").innerHTML += "<p>Incorrect!</p>";
 
     }
+
+    // Continue button
+    document.getElementById("options").innerHTML += "<button onclick=\"location.href='scores.html'\">Continue</button>";
 }
