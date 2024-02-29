@@ -37,9 +37,10 @@ function guess(button) {
     // Correct or incorrect
     if (userGuessedCorrectly) {
         document.getElementById("options").innerHTML += "<p>Correct! +100 points</p>";
+        localStorage.setItem("score", 300);
     } else {
         document.getElementById("options").innerHTML += "<p>Incorrect!</p>";
-
+        localStorage.setItem("score", 0);
     }
 
     // Continue button
