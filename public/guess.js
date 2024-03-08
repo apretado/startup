@@ -9,37 +9,34 @@ function buttonClick(button) {
     }
 }
 
-function guess(button) {
-    userGuessedCorrectly = false;
+async function guess(button) {
+    const data = { guess: button.textContent };
+    const response = await fetch("/api/guess", {
+        method: 'POST',
+        headers: {'content-type': 'application/json'},
+        body: JSON.stringify(data)
+    });
+    const userGuessedCorrectly = await response.json();
+
     let pointsEarned = 100;
 
-    // Loop through every button
+    // Disable all buttons
     buttonList = document.querySelectorAll("button");
     for (const item of buttonList) {
-        // Disable button
         item.disabled = true;
-
-        // If correct
-        if (item.textContent === correctAnswer) {
-            item.style.backgroundColor = "#28a745";
-
-            // If this is the button the user clicked on
-            if (item === button) {
-                userGuessedCorrectly = true;
-            }
-        }
-
-        // If incorrect
-        else {
-            item.style.backgroundColor = "red";
-        }
     }
 
     // Correct or incorrect
     if (userGuessedCorrectly) {
+        // Turn button green
+        button.style.backgroundColor = "#28a745";
+        // Notify user
         document.getElementById("options").innerHTML += `<p>Correct! +${pointsEarned} points</p>`;
         localStorage.setItem("score", pointsEarned);
     } else {
+        // Turn button red
+        button.style.backgroundColor = "red";
+        // Notify user
         document.getElementById("options").innerHTML += "<p>Incorrect!</p>";
         localStorage.setItem("score", 0);
     }
