@@ -21,7 +21,7 @@ apiRouter.get('/score', (_req, res) => {
 
 // SubmitGuess: response is true if the guess is correct, false otherwise
 apiRouter.post('/guess', (req, res) => {
-    res.send(submitGuess(req.body));
+    res.send(submitGuess(req.body.guess));
 })
 
 app.listen(port, () => {
