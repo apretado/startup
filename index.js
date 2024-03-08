@@ -14,6 +14,11 @@ app.use(express.static('public'));
 const apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
+// GetScore
+apiRouter.get('/score', (_req, res) => {
+    res.send(score);
+})
+
 // SubmitGuess: response is true if the guess is correct, false otherwise
 apiRouter.post('/guess', (req, res) => {
     res.send(submitGuess(req.body));
