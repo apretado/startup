@@ -14,7 +14,26 @@ app.use(express.static('public'));
 const apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
+// SubmitGuess: response is true if the guess is correct, false otherwise
+apiRouter.post('/guess', (req, res) => {
+    res.send(submitGuess(req.body));
+})
 
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);
-  });
+});
+
+
+let playerScore = 0;
+
+// The correct answer is hardcoded as 'Jack' for now.
+// In the future, the correct answer will be determined by other player's responses
+let answer = 'Jack';
+
+function submitGuess(guess) {
+    if (guess == answer) {
+        playerScore += 100;
+        return true;
+    }
+    return false;
+}
