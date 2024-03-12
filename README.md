@@ -137,3 +137,11 @@ What I've added in this deliverable:
 - JavaScript support for future database data: Scores are stored in localstorage and displayed in a scoreboard
 - JavaScript support for future WebSocket: The lobby simulates players joining in real time by generating player names and adding them to the list of connected players
 - JavaScript support for application's interaction logic: Javascript determines if the choice the user makes is correct, modifies the user's score and informs them of it, and highlights the right and wrong answers. A button to continue with the game then appears.
+
+# Service deliverable
+What I've added in this deliverable:
+- Created an HTTP service using Node.js and Express
+- Frontend is now served up using Express static middleware
+- Frontend calls third party service endpoints: the login page now displays a joke using the [Chuck Norris Jokes Api](https://api.chucknorris.io/)
+- Backend provides service endpoints: ```/api/guess``` and ```/api/score```
+- Frontend calls service endpoints: to submit a guess and to get the score
