@@ -1,8 +1,10 @@
 const express = require('express');
 const app = express();
 
+let playerScore = 0;
+
 // Service port
-const port = process.argv.ength > 2 ? process.argv[2] : 3000;
+const port = process.argv.ength > 2 ? process.argv[2] : 4000;
 
 // Use JSON body parsing
 app.use(express.json());
@@ -16,7 +18,7 @@ app.use(`/api`, apiRouter);
 
 // GetScore
 apiRouter.get('/score', (_req, res) => {
-    res.send(score);
+    res.send({ score: playerScore });
 })
 
 // SubmitGuess: response is true if the guess is correct, false otherwise
@@ -28,8 +30,6 @@ app.listen(port, () => {
     console.log(`Listening on port ${port}`);
 });
 
-
-let playerScore = 0;
 
 // The correct answer is hardcoded as 'Jack' for now.
 // In the future, the correct answer will be determined by other player's responses
