@@ -1,4 +1,4 @@
-document.getElementById("nameDisplay").textContent = "Your name: " + localStorage.getItem("username");
+document.getElementById("nameDisplay").textContent = "Your name: " + localStorage.getItem("userName");
 
 for (let delay = 700; delay < 8000; delay += 2000) {
     setTimeout(() => {
