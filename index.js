@@ -14,8 +14,14 @@ const port = process.argv.ength > 2 ? process.argv[2] : 4000;
 // Use JSON body parsing
 app.use(express.json());
 
+// Use the cookie parser middleware for tracking authentication tokens
+app.use(cookieParser());
+
 // Serve up the frontend static content hosting
 app.use(express.static('public'));
+
+// Trust headers that are forwarded from the proxy so we can determine IP addresses
+app.set('trust proxy', true);
 
 // Router for service endpoints
 const apiRouter = express.Router();
@@ -81,13 +87,14 @@ secureApiRouter.use(async (req, res, next) => {
     }
 });
 
-// GetScore
-apiRouter.get('/score', (_req, res) => {
-    res.send({ score: playerScore });
+// Submit guess
+secureApiRouter.post('/guess', (req, res) => {
+    res.send(submitGuess(req.body.guess));
 })
 
-apiRouter.post('/guess', (req, res) => {
-    res.send(submitGuess(req.body.guess));
+// GetScore (todo: store player score in database)
+secureApiRouter.get('/score', (_req, res) => {
+    res.send({ score: playerScore });
 })
 
 // setAuthCookie in the HTTP response
