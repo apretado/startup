@@ -16,17 +16,18 @@
     </header>
     <main>
         <h2>Game</h2>
-        <form method="get" action="guess.html">
-            <label for="response">Prompt: An award that you've won</label>
+        <div>
+            <label for="response" id="prompt">Prompt: An award that you've won</label>
             <br>
-            <input type="text" id="response" placeholder="Your response..." />
+            <input type="text" id="answer" placeholder="Your response..." />
             <br>
-            <button type="submit">Submit</button>
-          </form>
+            <button onclick="submitAnswer()">Submit</button>
+        </div>
     </main>
     <footer>
         <p>Made by Jonathan Thornton</p>
         <a href="https://github.com/apretado/startup">GitHub</a>
       </footer>
+      <script src="prompt.js"></script>
   </body>
 </html>

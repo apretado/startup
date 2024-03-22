@@ -87,15 +87,20 @@ secureApiRouter.use(async (req, res, next) => {
     }
 });
 
+// Submit answer
+secureApiRouter.put('/answer', async (req, res) => {
+    await DB.addAnswer(req.body.answer);
+});
+
 // Submit guess
 secureApiRouter.post('/guess', (req, res) => {
     res.send(submitGuess(req.body.guess));
-})
+});
 
 // GetScore (todo: store player score in database)
 secureApiRouter.get('/score', (_req, res) => {
     res.send({ score: playerScore });
-})
+});
 
 // setAuthCookie in the HTTP response
 function setAuthCookie(res, authToken) {
