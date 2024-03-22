@@ -1,8 +1,10 @@
-const cookieParser = require('cookie-parker');
+const cookieParser = require('cookie-parser');
 const bcrypt = require('bcrypt');
 const express = require('express');
 const app = express();
 const DB = require('./database.js');
+
+const authCookieName = 'token';
 
 let playerScore = 0;
 
@@ -46,48 +48,56 @@ apiRouter.post('/auth/login', async (req, res) => {
       }
     }
     res.status(401).send({ msg: 'Unauthorized' });
-  });
-  
-  // DeleteAuth token if stored in cookie
-  apiRouter.delete('/auth/logout', (_req, res) => {
-    res.clearCookie(authCookieName);
-    res.status(204).end();
-  });
-  
-  // GetUser returns information about a user
-  apiRouter.get('/user/:email', async (req, res) => {
-    const user = await DB.getUser(req.params.email);
-    if (user) {
-      const token = req?.cookies.token;
-      res.send({ email: user.email, authenticated: token === user.token });
-      return;
-    }
-    res.status(404).send({ msg: 'Unknown' });
-  });
-  
-  // secureApiRouter verifies credentials for endpoints
-  var secureApiRouter = express.Router();
-  apiRouter.use(secureApiRouter);
-  
-  secureApiRouter.use(async (req, res, next) => {
+});
+
+// DeleteAuth token if stored in cookie
+apiRouter.delete('/auth/logout', (_req, res) => {
+res.clearCookie(authCookieName);
+res.status(204).end();
+});
+
+// GetUser returns information about a user
+apiRouter.get('/user/:email', async (req, res) => {
+const user = await DB.getUser(req.params.email);
+if (user) {
+    const token = req?.cookies.token;
+    res.send({ email: user.email, authenticated: token === user.token });
+    return;
+}
+res.status(404).send({ msg: 'Unknown' });
+});
+
+// secureApiRouter verifies credentials for endpoints
+var secureApiRouter = express.Router();
+apiRouter.use(secureApiRouter);
+
+secureApiRouter.use(async (req, res, next) => {
     authToken = req.cookies[authCookieName];
     const user = await DB.getUserByToken(authToken);
     if (user) {
-      next();
+        next();
     } else {
-      res.status(401).send({ msg: 'Unauthorized' });
+        res.status(401).send({ msg: 'Unauthorized' });
     }
-  });
+});
 
 // GetScore
 apiRouter.get('/score', (_req, res) => {
     res.send({ score: playerScore });
 })
 
-// SubmitGuess: response is true if the guess is correct, false otherwise
 apiRouter.post('/guess', (req, res) => {
     res.send(submitGuess(req.body.guess));
 })
+
+// setAuthCookie in the HTTP response
+function setAuthCookie(res, authToken) {
+    res.cookie(authCookieName, authToken, {
+      secure: true,
+      httpOnly: true,
+      sameSite: 'strict',
+    });
+  }
 
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);
