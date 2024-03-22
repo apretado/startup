@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>I know you</title>
     <link rel="stylesheet" href="main.css" />
-    <script src="login.js"></script>
   </head>
   <body>
     <header>
@@ -21,34 +20,29 @@
       </nav>
     </header>
     <main>
-      <!-- <form method="get" action="lobby.html">
-        <h2>Join a game</h2>
-        <label for="code">Room Code</label>
-        <br>
-        <input type="text" id="code" placeholder="Enter 4-letter code" />
-        <br>
-        <label for="name">Name</label>
-        <br>
-        <input type="text" id="name" placeholder="Enter your name" />
-        <br>
-        <button type="submit">Play</button>
-      </form> -->
-      <div>
+      <div id="loginControls" style="display: none">
         <h2>Sign in</h2>
         <label for="username">Username</label>
         <br>
-        <input type="text" id="username" placeholder="Username" />
+        <input type="text" id="userName" placeholder="Username" />
         <br>
         <label for="name">Password</label>
         <br>
-        <input type="password" id="password" placeholder="Password" />
+        <input type="password" id="userPassword" placeholder="Password" />
         <br>
-        <button onclick="login()">Login</button>
+        <button onclick="loginUser()">Login</button>
+        <button onclick="createUser()">Create</button>
+      </div>
+      <div id="playControls" style="display: none">
+        <div id="playerName"></div>
+        <button onclick="play()">Play</button>
+        <button onclick="logout()">Logout</button>
       </div>
     </main>
     <footer>
         <p>Made by Jonathan Thornton</p>
         <a href="https://github.com/apretado/startup">GitHub</a>
-      </footer>
+    </footer>
+    <script src="login.js"></script>
   </body>
 </html>
