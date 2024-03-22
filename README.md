@@ -145,3 +145,10 @@ What I've added in this deliverable:
 - Frontend calls third party service endpoints: the login page now displays a joke using the [Chuck Norris Jokes Api](https://api.chucknorris.io/)
 - Backend provides service endpoints: ```/api/guess``` and ```/api/score```
 - Frontend calls service endpoints: to submit a guess and to get the score
+
+# Login deliverable
+- Supports new user registration
+- Supports existing user authentication
+- Stores application data in MongoDB: Every answer to the prompt given is stored in the database
+- Stores and retrieves credentials in MongoDB
+- Restricts application functionality based upon authentication: Only logged in users can access the endpoint ```/guess``` to submit a guess and ```/score``` to submit a score
