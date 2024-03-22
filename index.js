@@ -89,7 +89,8 @@ secureApiRouter.use(async (req, res, next) => {
 
 // Submit answer
 secureApiRouter.put('/answer', async (req, res) => {
-    await DB.addAnswer(req.body.answer);
+    answer = await DB.addAnswer(req.body.answer);
+    res.send(answer);
 });
 
 // Submit guess
