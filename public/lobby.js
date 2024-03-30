@@ -42,10 +42,12 @@ function configureWebSocket() {
     // };
 
     socket.onmessage = async (event) => {
-        const msg = JSON.parse(await event.data.text());
+        const msg = JSON.parse(await event.data);
         // Do something depending on what type of message it is
         if (msg.type === "lobbyJoin") {
             appendPlayer(msg.name);
+        } else if (msg.type === "lobbyQuit") {
+            removePlayer(msg.name);
         }
     };
 }
