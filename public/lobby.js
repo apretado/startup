@@ -26,30 +26,27 @@ function removePlayer(name) {
 }
 
 // Open webSocket
-function configureWebSocket() {
-    const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
-    socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
-    console.log("WebSocket configured");
+const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
+socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
+console.log("WebSocket configured");
 
-    socket.onopen = (event) => { 
-        // Let the server know that you have joined the lobby (todo: authentication)
-        socket.send(JSON.stringify({ type: "lobbyJoin", name: localStorage.getItem("userName") }));
-        console.log("Name sent");
-    };
+socket.onopen = (event) => { 
+    // Let the server know that you have joined the lobby (todo: authentication)
+    socket.send(JSON.stringify({ type: "lobbyJoin", name: localStorage.getItem("userName") }));
+    console.log("Name sent");
+};
 
-    // Alert user when WebSocket closes
-    socket.onclose = (event) => {
-        alert("Websocket connection lost");
-    };
+// Alert user when WebSocket closes
+socket.onclose = (event) => {
+    alert("Websocket connection lost");
+};
 
-    socket.onmessage = async (event) => {
-        const msg = JSON.parse(await event.data);
-        // Do something depending on what type of message it is
-        if (msg.type === "lobbyJoin") {
-            appendPlayer(msg.name);
-        } else if (msg.type === "lobbyQuit") {
-            removePlayer(msg.name);
-        }
-    };
-}
-configureWebSocket();
+socket.onmessage = async (event) => {
+    const msg = JSON.parse(await event.data);
+    // Do something depending on what type of message it is
+    if (msg.type === "lobbyJoin") {
+        appendPlayer(msg.name);
+    } else if (msg.type === "lobbyQuit") {
+        removePlayer(msg.name);
+    }
+};
