@@ -2,15 +2,6 @@ let socket;
 
 document.getElementById("nameDisplay").textContent = "Your name: " + localStorage.getItem("userName");
 
-// for (let delay = 700; delay < 8000; delay += 2000) {
-//     setTimeout(() => {
-//     const playerList = document.getElementById("playerList");
-//     const playerName = "player" + Math.floor(Math.random() * 1000);
-//     playerList.innerHTML = `<li>${playerName}</li>` + playerList.innerHTML;
-//     }, delay);
-// }
-
-
 // 100% vulnerable to XSS
 function appendPlayer(name) {
     const playerList = document.getElementById("playerList");
