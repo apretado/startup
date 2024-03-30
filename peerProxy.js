@@ -48,11 +48,11 @@ function peerProxy(httpServer) {
     
     ws.on('close', () => {
       // Let clients know that someone left 
-    //   connections.forEach((c) => {
-    //     if (c.id !== connection.id) {
-    //       c.ws.send(JSON.stringify({ type: "lobbyQuit", name: connection.id }));
-    //     }
-    //   });
+      connections.forEach((c) => {
+        if (c.id !== connection.id) {
+          c.ws.send(JSON.stringify({ type: "lobbyQuit", name: connection.name }));
+        }
+      });
 
       // Remove the closed connection so we don't try to forward anymore
       const pos = connections.findIndex((o, i) => o.id === connection.id);
