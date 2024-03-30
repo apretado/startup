@@ -152,3 +152,10 @@ What I've added in this deliverable:
 - Stores application data in MongoDB: Every answer to the prompt given is stored in the database
 - Stores and retrieves credentials in MongoDB
 - Restricts application functionality based upon authentication: Only logged in users can access the endpoint ```/guess``` to submit a guess and ```/score``` to submit a score
+
+# Websocket deliverable
+Websocket is used on the "lobby" page right after logging in. Then names of the players that are actively in the lobby will be shown to every player.
+- Backend listens for WebSocket connection
+- Frontend makes WebSocket connection: on the lobby page, a WebSocket connection is made automatically
+- Data sent over WebSocket connection: upon connection, the client's username is sent to the server. The server sends the client the usernames of other users as they join.
+- WebSocket data displayed in the application interface: The name of each connected user is displayed live in the lobby page
