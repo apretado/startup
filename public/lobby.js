@@ -37,9 +37,10 @@ function configureWebSocket() {
         console.log("Name sent");
     };
 
-    // Do something when WebSocket closes
-    // socket.onclose = (event) => {
-    // };
+    // Alert user when WebSocket closes
+    socket.onclose = (event) => {
+        alert("Websocket connection lost");
+    };
 
     socket.onmessage = async (event) => {
         const msg = JSON.parse(await event.data);
