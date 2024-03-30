@@ -20,18 +20,41 @@ function peerProxy(httpServer) {
     const connection = { id: uuid.v4(), alive: true, ws: ws };
     connections.push(connection);
 
-    // Forward messages to everyone except the sender
+    
     ws.on('message', function message(data) {
       console.log(`Message recieved: ${data}`);
+      const message = JSON.parse(data);
+      
+      // When a user joins the lobby
+      if (message.type == "lobbyJoin") {
+        // Add their name to their connection ID
+        connection.name = message.name;
+        // Send everyone else's name
+        connections.forEach((c) => {
+            if (c.id !== connection.id) {
+                connection.ws.send(JSON.stringify({ type: "lobbyJoin", name: c.name }));
+              }
+        });
+      }
+      
+      // Forward messages to everyone except the sender
       connections.forEach((c) => {
         if (c.id !== connection.id) {
-          c.ws.send(data);
+          c.ws.send(JSON.stringify(message));
         }
       });
     });
 
-    // Remove the closed connection so we don't try to forward anymore
+    
     ws.on('close', () => {
+      // Let clients know that someone left 
+    //   connections.forEach((c) => {
+    //     if (c.id !== connection.id) {
+    //       c.ws.send(JSON.stringify({ type: "lobbyQuit", name: connection.id }));
+    //     }
+    //   });
+
+      // Remove the closed connection so we don't try to forward anymore
       const pos = connections.findIndex((o, i) => o.id === connection.id);
 
       if (pos >= 0) {
