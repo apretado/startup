@@ -3,11 +3,11 @@ html {
     height: 100%;
 }
 
-body, menu{
+.body, menu{
     margin: 0;
 }
 
-body {
+.body {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -29,7 +29,7 @@ main {
     align-items: center;
 }
 
-body {
+.body {
     height: 100%;
 }
 
