@@ -1,28 +1,26 @@
 import React from 'react';
 
-export function Login() {
+import { Unauthenticated } from './unauthenticated';
+import { Authenticated } from './authenticated';
+import { AuthState } from './authState';
+
+export function Login({ userName, authState, onAuthChange }) {
   return (
-    <main>
-      <div>login displayed here</div>
+    <main className='container-fluid bg-secondary text-center'>
+      <div>
+        {authState !== AuthState.Unknown && <h1>Welcome to Simon</h1>}
+        {authState === AuthState.Authenticated && (
+          <Authenticated userName={userName} onLogout={() => onAuthChange(userName, AuthState.Unauthenticated)} />
+        )}
+        {authState === AuthState.Unauthenticated && (
+          <Unauthenticated
+            userName={userName}
+            onLogin={(loginUserName) => {
+              onAuthChange(loginUserName, AuthState.Authenticated);
+            }}
+          />
+        )}
+      </div>
     </main>
   );
 }
-
-// <div id="loginControls" style="display: none">
-//     <h2>Sign in</h2>
-//     <label for="username">Username</label>
-//     <br />
-//     <input type="text" id="userName" placeholder="Username" />
-//     <br />
-//     <label for="name">Password</label>
-//     <br />
-//     <input type="password" id="userPassword" placeholder="Password" />
-//     <br />
-//     <button onclick="loginUser()">Login</button>
-//     <button onclick="createUser()">Create</button>
-// </div>
-// <div id="playControls" style="display: none">
-//     <div id="playerName"></div>
-//     <button onclick="play()">Play</button>
-//     <button onclick="logout()">Logout</button>
-// </div>
