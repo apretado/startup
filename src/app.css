@@ -3,7 +3,7 @@ html {
     height: 100%;
 }
 
-.body, menu{
+body {
     margin: 0;
 }
 
@@ -11,6 +11,7 @@ html {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    height: 100vh;
 
     margin: 0;
 }
@@ -27,10 +28,6 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.body {
-    height: 100%;
 }
 
 footer {
