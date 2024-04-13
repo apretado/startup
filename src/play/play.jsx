@@ -1,9 +1,13 @@
 import React from 'react';
 
-export function Play() {
+import { WebSocketComponent } from './webSocketComponent';
+
+export function Play(props) {
+
+
   return (
-    <main>
-      <div>game displayed here</div>
+    <main className='bg-secondary'>
+      <WebSocketComponent />
     </main>
   );
 }
