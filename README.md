@@ -159,3 +159,11 @@ Websocket is used on the "lobby" page right after logging in. Then names of the 
 - Frontend makes WebSocket connection: on the lobby page, a WebSocket connection is made automatically
 - Data sent over WebSocket connection: upon connection, the client's username is sent to the server. The server sends the client the usernames of other users as they join.
 - WebSocket data displayed in the application interface: The name of each connected user is displayed live in the lobby page
+
+# React deliverable
+Converted application to use React
+- Bundled using Vite
+- Multiple functional react components: The dynamic elements (elements that appear/disappear) of the login page and the lobby are implemented with react
+- React router: switches pages in the application without making a request and reloading the entire page
+- React hooks: useState and useEffect hooks are used in the Login and the Lobby page
+
