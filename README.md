@@ -163,7 +163,7 @@ Websocket is used on the "lobby" page right after logging in. Then names of the 
 # React deliverable
 Converted application to use React
 - Bundled using Vite
-- Multiple functional react components: The dynamic elements (elements that appear/disappear) of the login page and the lobby are implemented with react
+- Multiple functional react components: The login page uses react to hide/show the login form based upon the authentication state. The lobby page uses react to update the list of players in the lobby.
 - React router: switches pages in the application without making a request and reloading the entire page
-- React hooks: useState and useEffect hooks are used in the Login and the Lobby page
+- React hooks: useState and useEffect hooks are used in the Login page to store authentication state across renders. They are used in the lobby page to store the list of players and synchronize the websocket connection.
 
